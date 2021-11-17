@@ -1,0 +1,43 @@
+{% extends 'auth_base.html' %} {% load static %} {% block title %} Login {% endblock %} {% block content %} {% if error == True %}
+<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+    <strong>Note!</strong> {{ error_msg }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<section>
+    <div class="imgBx">
+        <img src="{% static 'images/login.jpg' %}">
+    </div>
+    <div class="contentBx">
+        <h1>Diabetes Prediction System</h1>
+        <div class="formBx">
+            <h2>Login</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="inputBx">
+                    <span>Email</span>
+                    <input type="text" name="un" placeholder="Enter Your Email" autofocus required>
+                </div>
+                <div class="inputBx">
+                    <span>Password</span>
+                    <input type="password" name="pw" id="myInput" placeholder="Enter Your Password" required>
+                </div>
+                <div class="check">
+                    <label><input type="checkbox" onclick="myFunction()"> Show Password</label>
+                </div>
+                <br>
+                <div class="inputBx">
+                    <p><a href="{% url 'user_np' %}" style="text-decoration: none;">Forgot Password?</a></p>
+                </div>
+                <div class="inputBx">
+                    <input type="submit" value="Log In">
+                </div>
+                <div class="inputBx">
+                    <p>Don't have an account? <a href="{% url 'signup' %}" style="text-decoration: none;">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

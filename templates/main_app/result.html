@@ -1,0 +1,24 @@
+{% extends 'main_base.html' %} {% load static %} {% block title %} Report {% endblock %} {% block style %}
+
+<link href="{% static 'css/result.css' %}" type="text/css" rel="stylesheet" /> {% endblock %} {% block content %}
+<div class="app">
+    <header>
+    </header>
+    <nav>
+        <a>REPORT</a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </nav>
+    <main>
+        <h1><span>{% if result == 1 %} POSITIVE {% endif %} {% if result == 0 %} NEGATIVE {% endif %} </span>FOR DIABETES</h1>
+        {% if result == 1 %}
+        <p>Measures to be taken: <br> 1. Keep your blood pressure and cholesterol under control <br> 2. Don't smoke <br> 3. Schedule regular physicals and eye exams <br> 4. Take care of your teeth <br> 5. Encourage healthy eating
+        </p>
+        {% endif %} {% if result == 0 %}
+        <p>Precautions to be taken: <br> 1. Work Out Regularly <br> 2. Drink Water as Your Primary Beverage <br> 3. Follow a Very-Low-Carb Diet <br> 4. Optimize Vitamin D Levels <br> 5. Eat a High-Fiber Diet <br> 6. Quit Smoking <br> 7. Avoid Sedentary Behaviors
+        </p>
+        {% endif %}
+        <a href="{% url 'home' %}">Go To Home</a>
+    </main>
+</div>
+{% endblock %}

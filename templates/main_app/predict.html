@@ -1,0 +1,48 @@
+{% extends 'main_base.html' %} {% load static %} {% block title %} Predict {% endblock %} {% block style %}
+<link href="{% static 'css/predict.css' %}" type="text/css" rel="stylesheet" /> {% endblock %} {% block content %}
+<div class="container">
+    <div class="title">Enter Your Details</div>
+    <div class="content">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Age (years)</span>
+                    <input type="number" name="age" placeholder="Enter your Age" min="1" max="100" autofocus required>
+                </div>
+                <div class="input-box">
+                    <span class="details">BMI (kgs/mtr²)</span>
+                    <input type="number" name="bmi" placeholder="Enter Body Mass Index" step=".0001" min="1" max="80" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Insulin (mu U/ml)</span>
+                    <input type="number" name="insulin" placeholder="Enter 2-Hour Serum Insulin" min="0" max="900" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Glucose</span>
+                    <input type="number" name="glucose" placeholder="Enter Plasma Glucose" min="0" max="200" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Blood Pressure (mm Hg)</span>
+                    <input type="number" name="bp" placeholder="Enter Diastolic Blood Pressure" min="0" max="150" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Skin Thickness (mm)</span>
+                    <input type="number" name="skin" placeholder="Enter Skin Thickness" min="0" max="100" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Diabetes Pedigree Function</span>
+                    <input type="number" name="dpf" placeholder="Enter Diabetes Pedigree Function" step=".0001" min="0" max="3" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Pregancies</span>
+                    <input type="number" name="pregancies" placeholder="Enter No. Of Times Pregnant" min="0" max="17" required>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
